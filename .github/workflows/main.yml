@@ -29,3 +29,8 @@ jobs:
       with:
         name: sbom-report
         path: sbom.xml
+
+    - name: Generate SBOM
+      run: |
+        syft docker.io/kodekloud/webapp-color:latest -o spdx-json > actions/upload-artifact@v4
+
